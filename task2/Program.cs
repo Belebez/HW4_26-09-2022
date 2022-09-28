@@ -70,7 +70,7 @@ else if (way == 3)
         var total = 0;
         while (value != 0)
         {
-            value = Math.DivRem(value, 10, out int rem);  // аналогичная запись rem = value % 10
+            value = Math.DivRem(value, 10, out int rem);  // заменяет следующий код rem = value % 10 и value /= 10
             total += rem;
         }
         return total;
