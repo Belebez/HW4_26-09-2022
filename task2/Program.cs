@@ -5,12 +5,12 @@
 // 82 -> 10
 
 // 9012 -> 12
-Console.Write("Выберите способ решения 1 - через остаток, 2 - через индекс строки: ");
+Console.Write("Выберите способ решения 1 - через остаток, 2 - через индекс строки, 3 - через Math.DivRem(): ");
 int way = int.Parse(Console.ReadLine()!);
 
 if (way == 1)
 {
-    Console.WriteLine("Программа, которая принимает на вход число и выдаёт сумму цифр в числе.");
+    Console.WriteLine("Программа, принимает на вход число и выдаёт сумму цифр в числе.");
     Console.WriteLine();
     Console.Write("Введите число - ");
     int A = int.Parse(Console.ReadLine()!);
@@ -33,7 +33,7 @@ if (way == 1)
 }
 else if (way == 2)
 {
-    Console.WriteLine("Программа, которая принимает на вход число и выдаёт сумму цифр в числе.");
+    Console.WriteLine("Программа, принимает на вход число и выдаёт сумму цифр в числе.");
     Console.WriteLine();
     Console.Write("Введите число - ");
     string A = Console.ReadLine()!;
@@ -54,6 +54,28 @@ else if (way == 2)
     }
 }
 
+else if (way == 3)
+{
+    Console.WriteLine("Программа, принимает на вход число и выдаёт сумму цифр в числе.");
+    Console.WriteLine();
+    Console.Write("Введите число - ");
+    int A = int.Parse(Console.ReadLine()!);
+
+    int res = sumNum(A);
+    Console.WriteLine($"Сумма цифр числа {A} равна {res}");
+
+    int sumNum(int num)
+    {
+        var value = num;
+        var total = 0;
+        while (value != 0)
+        {
+            value = Math.DivRem(value, 10, out int rem);  // аналогичная запись rem = value % 10
+            total += rem;
+        }
+        return total;
+    }
+}
 else
 {
     Console.WriteLine("Вы ввели отличное от 1 или 2 цифру.");
